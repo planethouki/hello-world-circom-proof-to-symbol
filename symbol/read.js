@@ -10,9 +10,9 @@ const result = await fetch(
     .then((res) => res.json());
 
 const aggregateTransaction = result.transaction;
-const innerTransaction = aggregateTransaction.transactions;
+const innerTransactions = aggregateTransaction.transactions;
 
-const allText = innerTransaction
+const allText = innerTransactions
     .map(({ meta, transaction }) => {
         const message = transaction.message;
         const buffer = Buffer.from(message.slice(2), 'hex');
